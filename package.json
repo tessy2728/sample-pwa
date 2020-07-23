@@ -7,12 +7,16 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime"
     ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "webpack",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --content-base=dist",
     "customize-sw": "cat src/sw-custom.js >> dist/service-worker.js",
     "build": "webpack && npm run customize-sw",
     "dev": "npm run webpack-dev-server -- --env.mode development",
@@ -27,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "axios": "^0.19.2",
@@ -40,6 +45,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "html-webpack-plugin": "^4.3.0",
+    "localforage": "^1.8.1",
     "style-loader": "^1.2.1",
     "styled-components": "^4.4.0",
     "webpack": "^4.43.0",

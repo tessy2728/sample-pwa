@@ -1,8 +1,8 @@
 
 var CACHE_NAME = 'pwa-task-manager';
 var urlsToCache = [
-  '/dist/images/logo.png',
-  '/dist/icons/icon-192x192.png'
+  '/images/logo.png',
+  '/icons/icon-192x192.png'
 ];
 
 // Install a service worker
@@ -39,7 +39,7 @@ self.addEventListener('install', event => {
     );
   });
 
-  self.addEventListener('message', function (event) {
+  self.addEventListener('onmessage', function (event) {
     console.log('form data', event.data)
     if (event.data.hasOwnProperty('form_data')) {
       // receives form data from script.js upon submission
@@ -52,6 +52,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   console.log('activating')
   var cacheWhitelist = ['pwa-task-manager'];
+  clients.claim();
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(

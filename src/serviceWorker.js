@@ -16,7 +16,7 @@ export function register() {
       // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
       return;
     }
-    const swUrl = `dist/service-worker.js`;
+    const swUrl = `service-worker.js`;
 
     window.addEventListener('appinstalled', (evt) => {
       console.log('Create Shortcut clicked');
@@ -32,7 +32,6 @@ function registerValidSW(swUrl) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      console.log('registering..', navigator.serviceWorker, registration)
       if (!navigator.serviceWorker.controller) {
         console.info("controller is still none for some reason.");
         return;
@@ -41,7 +40,7 @@ function registerValidSW(swUrl) {
       registration.onupdatefound = () => {
         console.log('installing update')// The updatefound event implies that reg.installing is set; see
         // https://w3c.github.io/ServiceWorker/#service-worker-registration-updatefound-event
-        var installingWorker = reg.installing;
+        var installingWorker = registration.installing;
 
         installingWorker.onstatechange = function () {
           switch (installingWorker.state) {
