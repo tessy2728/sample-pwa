@@ -24,7 +24,8 @@ module.exports = {
         // new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                {from:'./public',to:'.'} 
+                {from:'./public',to:'.'},
+                {from:'./src/firebase-messaging-sw.js',to:'.'} 
             ],
           }),
         new WorkboxPlugin.GenerateSW({

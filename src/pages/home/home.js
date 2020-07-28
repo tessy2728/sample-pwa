@@ -10,7 +10,7 @@ const Home = () => {
         <>
         <Header><img src="images/logo.png" className="logo"></img>PWA APP </Header>
         <main>
-        {!loading &&<div>{data && `Hello ${data.name}`}!</div>}
+        {!loading &&<div>{data && data.name && `Hello Welcome ${data.name}!`}</div>}
         {loading &&<div>Loading...</div>}
         </main></>
     )

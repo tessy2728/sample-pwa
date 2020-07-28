@@ -32,10 +32,6 @@ function registerValidSW(swUrl) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      if (!navigator.serviceWorker.controller) {
-        console.info("controller is still none for some reason.");
-        return;
-      }
       console.log('sw registered')
       registration.onupdatefound = () => {
         console.log('installing update')// The updatefound event implies that reg.installing is set; see

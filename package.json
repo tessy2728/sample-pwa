@@ -17,8 +17,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "webpack",
     "start": "webpack-dev-server --open --content-base=dist",
-    "customize-sw": "cat src/sw-custom.js >> dist/service-worker.js",
-    "build": "webpack && npm run customize-sw",
+    "customize-sw": "cat src/firebase-messaging-sw.js >> dist/service-worker.js",
+    "build": "webpack",
     "dev": "npm run webpack-dev-server -- --env.mode development",
     "prod": "npm run webpack -- --env.mode production"
   },
@@ -44,6 +44,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
+    "firebase": "^7.17.1",
     "html-webpack-plugin": "^4.3.0",
     "localforage": "^1.8.1",
     "style-loader": "^1.2.1",
